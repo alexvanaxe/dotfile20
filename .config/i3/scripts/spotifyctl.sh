@@ -7,7 +7,7 @@ then
 fi
 
 
-source $HOME/.pyenv/versions/spotify/bin/activate
+source $HOME/.pyenv/versions/i3stufs/bin/activate
 chosen=$(printf "pause ⏸\\nplay ▶\\nforward ▶▶\\nback ◀◀" | dmenu $* -i -p "$(spotifycli --playbackstatus) $(spotifycli --statusshort)")
 
 case "$chosen" in

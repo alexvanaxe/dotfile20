@@ -6,7 +6,7 @@ then
 	gnome-pomodoro &
 fi
 
-source $HOME/.pyenv/versions/spotify/bin/activate
+source $HOME/.pyenv/versions/i3stufs/bin/activate
 chosen=$(printf "⏸\\n▶\\n🕑\\n⏹\\n▶▶\\n↻" | dmenu $* -i -p "$($HOME/.config/i3/scripts/pomodoro-client.py status) ")
 
 

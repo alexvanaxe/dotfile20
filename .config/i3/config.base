@@ -239,7 +239,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 bindsym $mod+Print exec gnome-screenshot -i
 
-exec --no-startup-id dunst
+exec --no-startup-id twmnd
 # exec --no-startup-id clipmenud
 exec --no-startup-id nitrogen --restore
 
