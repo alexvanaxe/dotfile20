@@ -102,16 +102,16 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $workspace1 "1:  "
-set $workspace2 "2: "
-set $workspace3 "3:  "
-set $workspace4 "4:"
-set $workspace5 "5:  "
-set $workspace6 "6: $ "
-set $workspace7 "7  "
-set $workspace8 "8  "
-set $workspace9 "9:  "
-set $workspace10 "10: "
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 workspace $workspace2 output HDMI1
 workspace $workspace3 output HDMI1
@@ -243,11 +243,11 @@ exec --no-startup-id dunst
 # exec --no-startup-id clipmenud
 exec --no-startup-id nitrogen --restore
 
-# class                 border  backgr. text    indicator
-client.focused #4F99D3 #12215B #AAAAAA #8C9BAE
-client.focused_inactive #9FCA56 #9FCA56 #151718 #A074C4
-client.unfocused #1f2326 #1f2326 #AAAAAA #A074C4
-client.urgent #CE4045 #CE4045 #FFFFFF #DCCD69
+# class border background text indicator child_border
+client.focused          #475057 #475057 #eff0f1 #bdc3c7 #475057
+client.focused_inactive #7f8c8d #7f8c8d #eff0f1 #bdc3c7 #7f8c8d
+client.unfocused        #eff0f1 #eff0f1 #bdc3c7 #bdc3c7 #eff0f1
+client.urgent           #3daee9 #3daee9 #eff0f1 #bdc3c7 #3daee9
 #
 #bindsym $mod+Shift+t exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2
 exec_always setxkbmap -model abnt2 -layout br -variant abnt2
@@ -320,22 +320,20 @@ bar {
 
 			tray_output primary
 
-			position bottom
-			font pango:Anonymous Pro Minus, Envy Code R, FontAwesome Bold 10
+			position top
+			font pango:Anonymous Pro Minus, FontAwesome Bold 10
 			strip_workspace_numbers no
-			separator_symbol ""
+			separator_symbol " "
 			height $height
 colors {
-    separator #AAAAAA
-    background #1f23265A
-    statusline #FFFFFF
-    focused_workspace #668BC8 #12215BAA #AAAAAA
-    active_workspace #668BC8 #DCCD69 #151718
-    inactive_workspace #1f2326 #1f23264A #AAAAAA
-    urgent_workspace #CE4045 #CE4045 #FFFFFF
-}
+    separator   #bfc2c4
+    background  #1D232F
+    statusline  #eff0f1
 
-# $i3-dmenu-colors
-set $dmenu_colors -sb "#12215B" -sf "#AAAAAA" -nb "#1f2326" -nf "#AAAAAA"
+    focused_workspace   #1C222E #1C222E #eff0f1
+    active_workspace    #1C222E #1C222E #dfe0e3
+    inactive_workspace  #1C222E #354052 #dfe0e3
+    urgent_workspace    #3daee9 #3daee9 #eff0f1
+}
 
 }
