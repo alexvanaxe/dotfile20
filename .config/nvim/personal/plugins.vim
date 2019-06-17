@@ -35,6 +35,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter', {'for': ['python', 'html', 'typescript', 'sh']}
+Plug 'mkitt/tabline.vim'
 
 " ## Facilitadores
 " Plug 'easymotion/vim-easymotion'
