@@ -13,6 +13,7 @@ setlocal fo-=t
 
 " Numbers
 setlocal number
+setlocal relativenumber
 " set numberwidth=5
 
 " filetype plugin indent on
