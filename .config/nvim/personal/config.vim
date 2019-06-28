@@ -66,7 +66,7 @@ set timeout!
 " Window Chooser ------------------------------
 
 " mapping
-nmap  -  <Plug>(choosewin)
+nmap  <leader>c  <Plug>(choosewin)
 " show big letters
 let g:choosewin_overlay_enable = 1
 

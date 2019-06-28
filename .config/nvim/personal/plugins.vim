@@ -1,12 +1,8 @@
 " Specify a directory for plugins
 " " - For Neovim: ~/.local/share/nvim/plugged
 " " - Avoid using standard Vim directory names like 'plugin'
-"Home
 call plug#begin('~/.config/nvim/plugged')
 
-"Work
-"call plug#begin('~/.vim/plugged')
-"
 Plug 'smancill/conky-syntax.vim'
 
 "Plug 'gantheory/vim-easymotion'
