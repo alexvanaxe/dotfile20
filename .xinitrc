@@ -33,6 +33,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 setxkbmap -model abnt2 -layout br -variant abnt2
 
-exec /home/alexvanaxe/bin/startdwm
+#exec /home/alexvanaxe/bin/startdwm
 #exec i3
-#exec dwm
+exec dwm
