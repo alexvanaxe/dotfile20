@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 chosen=$(printf "pause ⏸\\nplay ▶\\nforward ▶▶\\nback ◀◀" | dmenu "$@" -i -p "$(playerctl metadata artist) - $(playerctl metadata title)")
 

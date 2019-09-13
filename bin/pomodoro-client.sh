@@ -1,10 +1,4 @@
-#!/usr/bin/env bash
-
-pid=$(pidof gnome-pomodoro)
-if [ -z "$pid" ]
-then
-	gnome-pomodoro &
-fi
+#!/bin/sh
 
 source $HOME/.pyenv/versions/spotify/bin/activate
 chosen=$(printf "⏸\\n▶\\n\\n⏹\\n▶▶\\n↻" | dmenu "$@" -i -p "$($HOME/.config/i3/scripts/pomodoro-client.py status) ")

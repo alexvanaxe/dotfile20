@@ -1,3 +1,4 @@
+#!/bin/sh
 
 chosen=$(printf "Turnoff monitor\\nSleep\\nRestart\\nPoweroff\\nHibernate" | dmenu "$@" -i -p "Power:")
 

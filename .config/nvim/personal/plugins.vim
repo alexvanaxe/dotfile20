@@ -73,6 +73,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'haishanh/night-owl.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " ColorSchemes
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'

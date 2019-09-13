@@ -1,3 +1,4 @@
+#!/bin/sh
 
 if [[ $1 == "play" ]]; then
     mv $HOME/Documents/output.mkv $HOME/Documents/output_bkp.mkv
