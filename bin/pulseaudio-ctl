@@ -8,7 +8,7 @@
 # by graysky
 # https://github.com/graysky2/pulseaudio-ctl
 
-VERS="1.66"
+VERS="1.67"
 SKEL="/usr/share/pulseaudio-ctl/config.skel"
 CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/pulseaudio-ctl/config"
 
@@ -36,7 +36,7 @@ exit 1; }
 
 # really crude pactl version check since commands are different for different
 # versions of pactl. sorry users of PA <5
-PAVERSION=$(pactl --version | grep pactl | pactl --version | grep pactl | sed -e 's/^pactl //' -e 's/\([0-9.]\+\).*/\1/')
+PAVERSION=$(pactl --version | grep pactl | sed -e 's/^pactl //' -e 's/\([0-9.]\+\).\([0-9.]\+\)$/\1/')
 if [[ ${PAVERSION%%.*} -lt 5 ]]; then
   # really old versions
   PCV=0
@@ -331,11 +331,8 @@ case "$1" in
     echo -e " ${BLD}Is source muted  : $SOURCE_MUTED"
     echo -e " ${BLD}Detected sink    : ${NRM}${BLU}$SINK${NRM}"
     echo -e " ${BLD}Detected source  : ${NRM}${BLU}$SOURCE${NRM}"
-    echo -e " ${BLD}Pulse version    : ${NRM}${BLU}$PAVERSION${NRM}"
     ;;
 esac
-
-refbar
 
 exit 0
 

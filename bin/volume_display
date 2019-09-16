@@ -1,16 +1,26 @@
 #!/bin/sh
 
 volume=$(pulseaudio-ctl full-status | awk '{print $1}')
+is_muted=$(pulseaudio-ctl full-status | awk '{print $2}')
+icon=
+
 if [ "$volume" -eq "0" ]
 then
-	echo -e " $volume"
+	icon=""
 elif [ "$volume" -gt "50" ]
 then
-	echo -e " $volume"
+	icon=""
 elif [ "$volume" -eq "50" ]
 then
-	echo -e " $volume"
+	icon=""
 elif [ "$volume" -lt "50" ]
 then
-	echo -e " $volume"
+	icon=""
 fi
+
+if [ "$is_muted" == "yes" ]
+then
+    icon=""
+fi
+
+echo -e "$icon $volume"

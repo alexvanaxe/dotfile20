@@ -1,5 +1,6 @@
+#!/bin/sh
 
-chosen=$(printf "Turnoff monitor\\nSleep\\nRestart\\nPoweroff\\nHibernate" | dmenu $* -i -p "Power:")
+chosen=$(printf "Turnoff monitor\\nSleep\\nRestart\\nPoweroff\\nHibernate" | dmenu "$@" -i -p "Power:")
 
 poweroff() { \
 	confirm="$(printf "No\\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )"

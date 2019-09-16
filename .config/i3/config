@@ -210,7 +210,7 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-bindsym $mod+shift+x exec $HOME/.config/i3/scripts/lock.sh 
+bindsym $mod+shift+x exec $HOME/bin/lock.sh 
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -228,9 +228,9 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # Bind the volume control
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioMute exec pulseaudio-ctl mute && pkill -RTMIN+1 i3blocks 
+bindsym $mod+Ctrl+F2 exec pulseaudio-ctl up && pkill -RTMIN+1 i3blocks
+bindsym $mod+Ctrl+F1 exec pulseaudio-ctl down && pkill -RTMIN+1 i3blocks 
+bindsym $mod+Ctrl+F3 exec pulseaudio-ctl mute && pkill -RTMIN+1 i3blocks 
 
 # Media player controls TODO Resolver o play/pause no msm botao
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -295,17 +295,17 @@ bindsym $mod+F4 exec --no-startup-id compton -b
 bindsym $mod+Shift+F4 exec --no-startup-id killall compton
 bindsym $mod+F5 exec --no-startup-id xflux -l -22.9023744 -g -43.2553984
 bindsym $mod+Shift+F5 exec --no-startup-id killall xflux
-bindsym $mod+F6 exec --no-startup-id  $HOME/.config/i3/scripts/random.sh
+bindsym $mod+F6 exec --no-startup-id  $HOME/bin/random.sh
 bindsym $mod+F7 exec --no-startup-id $HOME/.config/i3/conky/conky.sh
 bindsym $mod+Shift+F7 exec --no-startup-id killall conky
 
-bindsym $mod+Ctrl+m exec --no-startup-id $HOME/.config/i3/scripts/dmenumount $dmenu_colors
-bindsym $mod+Ctrl+u exec --no-startup-id $HOME/.config/i3/scripts/dmenuumount
-bindsym $mod+Ctrl+d exec --no-startup-id $HOME/.config/i3/scripts/displayselect
-bindsym $mod+Ctrl+l exec --no-startup-id $HOME/.config/i3/scripts/avalight $dmenu_colors
-bindsym $mod+Ctrl+s exec --no-startup-id $HOME/.config/i3/scripts/spotifyctl.sh $dmenu_colors
-bindsym $mod+Ctrl+e exec --no-startup-id $HOME/.config/i3/scripts/powercontrol.sh $dmenu_colors
-bindsym $mod+Ctrl+p exec --no-startup-id $HOME/.config/i3/scripts/pomodoro-client.sh $dmenu_colors
+bindsym $mod+Ctrl+m exec --no-startup-id $HOME/bin/dmenumount $dmenu_colors
+bindsym $mod+Ctrl+u exec --no-startup-id $HOME/bin/dmenuumount
+bindsym $mod+Ctrl+d exec --no-startup-id $HOME/bin/displayselect
+bindsym $mod+Ctrl+l exec --no-startup-id $HOME/bin/avalight $dmenu_colors
+bindsym $mod+Ctrl+s exec --no-startup-id $HOME/bin/player_ctl.sh $dmenu_colors
+bindsym $mod+Ctrl+e exec --no-startup-id $HOME/bin/powercontrol.sh $dmenu_colors
+bindsym $mod+Ctrl+p exec --no-startup-id $HOME/bin/pomodoro-client.sh $dmenu_colors
 bindsym $mod+Ctrl+c exec --no-startup-id clipmenu
 
 for_window [title="OpenSSH Authentication Passphrase request"] floating enable

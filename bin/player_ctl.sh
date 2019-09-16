@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-chosen=$(printf "pause ⏸\\nplay ▶\\nforward ▶▶\\nback ◀◀" | dmenu $* -i -p "$(playerctl metadata artist) - $(playerctl metadata title)")
+chosen=$(printf "pause ⏸\\nplay ▶\\nforward ▶▶\\nback ◀◀" | dmenu "$@" -i -p "$(playerctl metadata artist) - $(playerctl metadata title)")
 
 case "$chosen" in
 	"pause ⏸") playerctl pause;;
