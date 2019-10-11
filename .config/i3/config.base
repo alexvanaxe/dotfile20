@@ -303,6 +303,8 @@ bindsym $mod+Ctrl+s exec --no-startup-id $HOME/bin/player_ctl.sh $dmenu_colors
 bindsym $mod+Ctrl+e exec --no-startup-id $HOME/bin/powercontrol.sh $dmenu_colors
 bindsym $mod+Ctrl+p exec --no-startup-id $HOME/bin/pomodoro-client.sh $dmenu_colors
 bindsym $mod+Ctrl+c exec --no-startup-id clipmenu
+# Enable fullscreen to a container
+bindsym $mod+Ctrl+f fullscreen disable, split horizontal; [class="^Firefox$"] move scratchpad; scratchpad show, floating disable; focus parent; fullscreen enable; focus child
 
 for_window [title="OpenSSH Authentication Passphrase request"] floating enable
 
