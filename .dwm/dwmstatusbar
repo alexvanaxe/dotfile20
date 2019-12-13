@@ -15,6 +15,10 @@ volume(){
 	volume_display
 }
 
+torrent_st(){
+    torrent
+}
+
 mem(){
   mem=`free | awk '/Mem/ {printf "%d MiB/%d MiB\n", $3 / 1024.0, $2 / 1024.0 }'`
 }
@@ -54,9 +58,13 @@ count_sleep(){
 weather_show(){
 	updt=$(( $cs % 20 ))
 	if [ "$updt" -eq "0" ] || [ "$cs" -eq "1" ]; then
-		echo $(curl -Ss 'https://wttr.in?format=%c+%t+%m') > ~/.temp
+        temp=$(curl -Ss 'https://wttr.in?format=%c+%t+%m')
+        regex="[\+\-][0-9].*C"
+        if [[ $temp =~ $regex ]]; then
+            echo $temp > ~/.dwm/weather.cache
+        fi
 	fi
-	foo="`cat ~/.temp`"
+	foo="`cat ~/.dwm/weather.cache`"
 	echo "$foo"
 }
 
@@ -74,6 +82,11 @@ reset_cs(){
 	fi
 }
 
+recording_indicator(){
+  rec="`cat ~/.dwm/recording`"
+  echo "$rec"
+}
+
 # while true; do
 # xsetroot -name "$(cpu) | $(dte) | $(volume)"
 #      sleep 10s    # Update time every ten seconds
@@ -83,10 +96,14 @@ reset_cs(){
 # can really be broken down into many submodules which I've commented and
 # explained.
 status() { \
-#	pomodoro_var=$(pomodoro_st)
-#	print_var "$pomodoro_var" "$delim"
+	recording_var=$(recording_indicator)
+	print_var "$recording_var" "$delim"
+	pomodoro_var=$(pomodoro_st)
+	print_var "$pomodoro_var" "$delim"
 #	player_var=$(player_st)
 #	print_var "$player_var" "$delim"
+    torrent_var=$(torrent)
+    print_var "$torrent_var" "$delim"
 	load_var=$(load)
 	print_var "$load_var" "$delim"
 	weather_var=$(weather_show)
@@ -104,7 +121,11 @@ while :; do
 	# to prevent some weird issues that cause significant slowing of
 	# everything in dwm. Note entirely sure of the cause, but again, the tr
 	# command easily avoids it.
-	xsetroot -name "$(status | tr '\n' ' ')"
+    if [ $1 == "test" ]; then
+        echo "$(status | tr '\n' ' ')"
+    else
+        xsetroot -name "$(status | tr '\n' ' ')"
+    fi
 
 	# Sleep for a minute after changing the status bar before updating it
 	# again. Note that the `refbar` "refreshes" the statusbar by killing

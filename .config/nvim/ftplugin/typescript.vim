@@ -18,6 +18,7 @@ setlocal colorcolumn=+1
 
 " Numbers
 setlocal number
+setlocal relativenumber
 " set numberwidth=5
 
 " filetype plugin indent on

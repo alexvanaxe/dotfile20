@@ -1,12 +1,11 @@
 #!/bin/sh
 
-
-players=($(playerctl -a metadata 2> /dev/null | awk '{print $1}' | uniq))
+players=($(playerctl -a metadata 2> /dev/null | awk '!seen[$1] {print $1} {++seen[$1]}'))
 
 players_len=${#players[@]}
 
 if [ $players_len -gt 1 ]; then
-    chosen_p=$(printf "%s\n ${players[@]}" | dmenu "$@" -i -p "Select the player:")
+    chosen_p=$(basename -a ${players[@]} | dmenu "$@" -i -p "Select the player:")
 
     if [ ! -z $chosen_p ]; then
         chosen=$(printf "pause ⏸\\nplay ▶\\nforward ▶▶\\nback ◀◀" | dmenu "$@" -i -p "$(playerctl -p $chosen_p metadata artist) - $(playerctl -p $chosen_p metadata title)")

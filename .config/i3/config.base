@@ -113,12 +113,14 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
-workspace $workspace2 output HDMI1
-workspace $workspace3 output HDMI1
+workspace $workspace2 output VIRTUAL1
+workspace $workspace3 output VIRTUAL1
+workspace $workspace5 output VIRTUAL2
+workspace $workspace6 output VIRTUAL1
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1 
-bindsym $mod+2 workspace $workspace2 
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
@@ -128,6 +130,7 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
+bindsym $mod+Shift+p workspace $workspace5;workspace $workspace6
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -141,7 +144,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # move focused container to workspace and follow it
-bindsym $mod+Mod1+1 move container to workspace $workspace1;workspace $workspace1 
+bindsym $mod+Mod1+1 move container to workspace $workspace1;workspace $workspace1
 bindsym $mod+Mod1+2 move container to workspace $workspace2;workspace $workspace2
 bindsym $mod+Mod1+3 move container to workspace $workspace3;workspace $workspace3
 bindsym $mod+Mod1+4 move container to workspace $workspace4;workspace $workspace4
@@ -210,7 +213,7 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-bindsym $mod+shift+x exec $HOME/bin/lock.sh 
+bindsym $mod+shift+x exec $HOME/bin/lock.sh
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -229,8 +232,8 @@ bindsym $mod+Pause mode "$mode_system"
 
 # Bind the volume control
 bindsym $mod+Ctrl+F2 exec pulseaudio-ctl up && pkill -RTMIN+1 i3blocks
-bindsym $mod+Ctrl+F1 exec pulseaudio-ctl down && pkill -RTMIN+1 i3blocks 
-bindsym $mod+Ctrl+F3 exec pulseaudio-ctl mute && pkill -RTMIN+1 i3blocks 
+bindsym $mod+Ctrl+F1 exec pulseaudio-ctl down && pkill -RTMIN+1 i3blocks
+bindsym $mod+Ctrl+F3 exec pulseaudio-ctl mute && pkill -RTMIN+1 i3blocks
 
 # Media player controls TODO Resolver o play/pause no msm botao
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -247,8 +250,10 @@ exec --no-startup-id nitrogen --restore
 #
 #bindsym $mod+Shift+t exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2
 exec_always setxkbmap -model abnt2 -layout br -variant abnt2
-exec_always setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll br,il
-exec_always $HOME/.config/i3/monitor/saver.sh 
+#exec_always setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll br,il
+exec_always $HOME/.config/i3/monitor/saver.sh
+
+exec_always sxhkd
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -302,6 +307,7 @@ bindsym $mod+Ctrl+l exec --no-startup-id $HOME/bin/avalight $dmenu_colors
 bindsym $mod+Ctrl+s exec --no-startup-id $HOME/bin/player_ctl.sh $dmenu_colors
 bindsym $mod+Ctrl+e exec --no-startup-id $HOME/bin/powercontrol.sh $dmenu_colors
 bindsym $mod+Ctrl+p exec --no-startup-id $HOME/bin/pomodoro-client.sh $dmenu_colors
+bindsym $mod+Ctrl+r exec --no-startup-id /home/y21s/bin/play_radio.sh $dmenu_colors
 bindsym $mod+Ctrl+c exec --no-startup-id clipmenu
 # Enable fullscreen to a container
 bindsym $mod+Ctrl+f fullscreen disable, split horizontal; [class="^Firefox$"] move scratchpad; scratchpad show, floating disable; focus parent; fullscreen enable; focus child

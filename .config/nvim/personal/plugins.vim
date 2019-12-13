@@ -102,6 +102,7 @@ Plug 'valloric/MatchTagAlways'
 Plug 'leafgarland/typescript-vim'
 Plug 'bdauria/angular-cli.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'Quramy/tsuquyomi'
 Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -125,4 +126,5 @@ Plug 'tmux-plugins/vim-tmux'
 " Plug 'vim-scripts/a.vim'
 " Plug 'vim-scripts/OmniCppComplete'
 
+Plug 'kovetskiy/sxhkd-vim'
 call plug#end()

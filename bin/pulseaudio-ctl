@@ -334,6 +334,8 @@ case "$1" in
     ;;
 esac
 
+refbar
+
 exit 0
 
 # vim:set ts=8 sts=2 sw=2 et:

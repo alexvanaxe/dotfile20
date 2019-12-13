@@ -34,7 +34,7 @@ set shell=/bin/zsh
 let g:bookmark_save_per_working_dir = 1
 "let g:bookmark_auto_save = 1
 
-" let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_at_startup=1
 " AutoSelect the first element
 " let g:deoplete#disable_auto_complete = 1
 
