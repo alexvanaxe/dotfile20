@@ -1,0 +1,22 @@
+#!/bin/sh
+
+pid=$(pidof pulseeffects)
+if [ -z "$pid" ]
+then
+    if hash pulseeffects 2>/dev/null; then
+        pulseeffects --gapplication-service &
+    else
+        notify-send "NOT FOUND" "[equalizer] Command pulseefects not found. Install it."    
+        echo "Run: pacman -S pulseefects"
+        exit 1
+    fi
+fi
+
+options=$(basename -as ".json" $HOME/.config/PulseEffects/output/*)
+chosen="$(echo -e "$options\nStop it!" | dmenu "$@" -l 20 -i -p "How to equalize this?")"
+
+if [ "$chosen" == "Stop it!" ]; then
+        pulseeffects -q
+    else
+        pulseeffects -l "$chosen"
+fi
