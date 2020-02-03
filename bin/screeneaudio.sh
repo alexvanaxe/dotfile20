@@ -9,6 +9,6 @@ fi
 
 if [[ $1 == "stop" ]]; then
     killall ffmpeg
-    rm $HOME/.dwm/recording
+    echo "" > $HOME/.dwm/recording
     refbar
 fi
