@@ -16,6 +16,6 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-colorscheme PaperColor
+colorscheme one
 
-let g:airline_theme='night_owl'
+let g:airline_theme="one"

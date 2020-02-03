@@ -15,6 +15,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
@@ -36,3 +37,12 @@ alias pacimpl="pacman -D --asdep"	# Mark one or more installed packages as non e
 alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
 
 alias i3cheatsheet='egrep ^bind ~/.config/i3/config | cut -d '\'' '\'' -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\'' | pr -2 -w 145 -t | less'
+
+export HTTP_PROXY=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+export HTTPS_PROXY=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+export http_proxy=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+export https_proxy=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+export FTP_PROXY=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+export FTPS_PROXY=http://y21s:fodAse00@inet-sys.gnet.petrobras.com.br:804
+
+source ~/.profile

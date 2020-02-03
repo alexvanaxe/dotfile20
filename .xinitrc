@@ -37,6 +37,6 @@ vmware-user
 xsetroot -cursor_name left_ptr
 
 #exec /home/alexvanaxe/bin/startdwm
-#exec i3
+exec i3
 #exec dwm
-exec bspwm
+#exec bspwm
