@@ -15,3 +15,4 @@ sudo pacman -Rs $(pacman -Qtdq)
 Verificar se todos os arquivos do todo foram pushados.
 
 
+gcc -c -Q -march=native --help=target | grep march
