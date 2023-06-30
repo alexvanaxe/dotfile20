@@ -1,2 +1,2 @@
-FONT="Share Tech Mono":pixelsize=20
-SAVER=saver_mpv
+FONT=Iceland:pixelsize=29
+SAVER=saver_blank

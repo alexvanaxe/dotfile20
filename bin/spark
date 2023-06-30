@@ -27,7 +27,7 @@
 #
 # $1 - The data we'd like to graph.
 
-regex_color="A162A5"
+regex_color=48de37
 count=0
 count_begin=1
 count_end=
